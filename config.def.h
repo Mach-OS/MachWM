@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 23;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 23;       /* vert inner gap between windows */
@@ -18,16 +18,22 @@ static const char *upvol[]               = { "/usr/bin/pactl", "set-sink-volume"
 static const char *downvol[]             = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%",     NULL };
 static const char *mutevol[]             = { "/usr/bin/pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle",  NULL };
 // static const char *fonts[]               = { "robotomono:size=13",  "fontawesome:size=24" };
+
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:style:medium:size=13",
                                         "JoyPixels:pixelsize=24:antialias=true:autohint=true",
                                       };
-static const char dmenufont[]       = "JetBrainsMono Nerd Font:style:medium:size=13";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bfbfbf";
-static const char col_gray4[]       = "#fefefe";
-static const char col_cyan[]        = "#005577";
-static const unsigned int baralpha = 0x90;
+// static const char dmenufont[]       = "JetBrainsMono Nerd Font:style:medium:size=13";
+// static const char *fonts[]          = { "Ubuntu:size=13",
+//                                         "JoyPixels:pixelsize=24:antialias=true:autohint=true",
+                                      // };
+static const char dmenufont[]       = "Ubuntu:size=13";
+static const char col_gray1[]       = "#000000";
+static const char col_gray2[]       = "#000000";
+static const char col_gray3[]       = "#c5c5c5";
+static const char col_gray4[]       = "#ffffff";
+// static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#9f9f9f";
+static const unsigned int baralpha = 0x70;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */

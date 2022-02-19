@@ -598,8 +598,9 @@ clientmessage(XEvent *e)
 	Client *c = wintoclient(cme->window);
 	unsigned int i;
 
-  drw_text(drw, 0, 0, sw, bh, 0, "", 0);
-  drw_map(drw, selmon->barwin, 0, 0, selmon->ww, bh);
+  // TODO: revisit, currently wipes out entire bar
+  // drw_text(drw, 0, 0, sw, bh, 0, "", 0);
+  // drw_map(drw, selmon->barwin, 0, 0, selmon->ww, bh);
 
 	if (showsystray && cme->window == systray->win && cme->message_type == netatom[NetSystemTrayOP]) {
 		/* add systray icons */
