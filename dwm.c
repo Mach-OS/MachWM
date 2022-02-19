@@ -598,6 +598,9 @@ clientmessage(XEvent *e)
 	Client *c = wintoclient(cme->window);
 	unsigned int i;
 
+  drw_text(drw, 0, 0, sw, bh, 0, "", 0);
+  drw_map(drw, selmon->barwin, 0, 0, selmon->ww, bh);
+
 	if (showsystray && cme->window == systray->win && cme->message_type == netatom[NetSystemTrayOP]) {
 		/* add systray icons */
 		if (cme->data.l[1] == SYSTEM_TRAY_REQUEST_DOCK) {
@@ -1139,6 +1142,14 @@ void
 drawbars(void)
 {
 	Monitor *m;
+
+  if (showsystray) {
+    /* Clear status bar to avoid artifacts beneath systray icons */
+    drw_setscheme(drw, scheme[SchemeNorm]);
+    drw_rect(drw, 0, 0, selmon->ww, bh, 1, 1);
+    drw_map(drw, selmon->barwin, 0, 0, selmon->ww, bh);
+  }
+
 
 	for (m = mons; m; m = m->next)
 		drawbar(m);

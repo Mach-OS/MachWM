@@ -32,3 +32,13 @@ Example:
 ```
 wget https://raw.githubusercontent.com/bakkeby/patches/master/dwm/dwm-alpha-systray-6.3.diff
 ```
+
+## Where to get patches
+
+- [suckless/patches](https://dwm.suckless.org/patches/) 
+
+- [bakkeby/patches](https://github.com/bakkeby/patches) 
+
+## Extra
+
+- [alpha+systray](https://www.reddit.com/r/suckless/comments/fw7yhn/dwm_alpha_systray_artifacts/) 
