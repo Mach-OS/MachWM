@@ -42,3 +42,14 @@ wget https://raw.githubusercontent.com/bakkeby/patches/master/dwm/dwm-alpha-syst
 ## Extra
 
 - [alpha+systray](https://www.reddit.com/r/suckless/comments/fw7yhn/dwm_alpha_systray_artifacts/) 
+
+## TODO
+
+- dragmfact doesn't work
+- tag preview (breaks when I try to use it)
+- spotify fix patch
+- steam fix patch
+- clickable blocks
+- launch float windows with automatic coordinates
+- put autostart stuff in autostart script
+- swallow / scratch
