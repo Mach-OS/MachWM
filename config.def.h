@@ -26,7 +26,7 @@ static const char *fonts[]          = { "JetBrainsMono Nerd Font:style:medium:si
 // static const char *fonts[]          = { "Ubuntu:size=13",
 //                                         "JoyPixels:pixelsize=24:antialias=true:autohint=true",
                                       // };
-static const char dmenufont[]       = "Ubuntu:size=13";
+static const char dmenufont[]       = "JetBrainsMono Nerd Font:style:medium:size=14";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#000000";
 static const char col_gray3[]       = "#c5c5c5";
@@ -109,7 +109,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+// static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
 #include <X11/XF86keysym.h>
@@ -123,10 +124,14 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,      {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,             {0} },
+	{ MODKEY,                       XK_Down,   setmfact,         {.f = -0.05} },
+	{ MODKEY,                       XK_Up,     setmfact,         {.f = +0.05} },
+	{ MODKEY,                       XK_Left,   setmfact,         {.f = -0.05} },
+	{ MODKEY,                       XK_Right,  setmfact,         {.f = +0.05} },
 	{ MODKEY,                       XK_g,      togglegaps,       {0} },
 	{ MODKEY,                       XK_l,      shiftviewclients, { .i = +1 } },
 	{ MODKEY,                       XK_h,      shiftviewclients, { .i = -1 } },
-	{ MODKEY,                       XK_Tab,    view,             {0} },
+	{ MODKEY,                       XK_semicolon,    view,             {0} },
 	{ MODKEY,                       XK_q,      killclient,       {0} },
 	{ MODKEY,                       XK_t,      setlayout,        {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,        {.v = &layouts[1]} },
@@ -141,7 +146,8 @@ static Key keys[] = {
 	{ MODKEY,			                  XK_y,           spawn,		      SHCMD("flameshot gui -p ~/Pictures/screenshots") },
 	{ MODKEY|ShiftMask,			        XK_y,           spawn,		      SHCMD("flameshot full -p ~/Pictures/screenshots") },
 	{ MODKEY|ShiftMask,			        XK_v,           spawn,		      SHCMD("mpv --profile=low-latency /dev/video0") },
-	{ MODKEY,                       XK_semicolon,   spawn,          SHCMD("skippy-xd") },
+	{ MODKEY,                       XK_Tab,         spawn,          SHCMD("skippy-xd") },
+	{ MODKEY,                       XK_Escape,      spawn,          SHCMD("sudo systemctl suspend") },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
   { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
@@ -152,8 +158,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_0, spawn, {.v = mutevol } },
 	// { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	// { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	// { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	// { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
