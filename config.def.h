@@ -64,7 +64,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     iscentered   isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
+	{ "test",     NULL,       NULL,       0,            0,           1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
 };
 
@@ -140,10 +140,10 @@ static Key keys[] = {
 	{ MODKEY,			                  XK_p,           spawn,		      SHCMD("restream") },
 	{ MODKEY,                       XK_s,           spawn,          SHCMD("screenkey -s small --scr 2 -p fixed -g 400x100+4700+25 --opacity .6 --font-color white") },
 	{ MODKEY|ShiftMask,             XK_s,           spawn,          SHCMD("killall screenkey") },
-	{ MODKEY,			                  XK_e,           spawn,		      SHCMD("nautilus") },
+	{ MODKEY,			                  XK_e,           spawn,		      SHCMD("pcmanfm") },
 	{ MODKEY,			                  XK_w,           spawn,		      SHCMD("$BROWSER") },
 	{ MODKEY,			                  XK_r,           spawn,		      SHCMD("$TERMINAL -e ranger") },
-	{ MODKEY,			                  XK_y,           spawn,		      SHCMD("flameshot gui -p ~/Pictures/screenshots") },
+	{ MODKEY,			                  XK_y,           spawn,		      SHCMD("flameshot gui") },
 	{ MODKEY|ShiftMask,			        XK_y,           spawn,		      SHCMD("flameshot full -p ~/Pictures/screenshots") },
 	{ MODKEY|ShiftMask,			        XK_v,           spawn,		      SHCMD("mpv --profile=low-latency /dev/video0") },
 	{ MODKEY,                       XK_Tab,         spawn,          SHCMD("skippy-xd") },
